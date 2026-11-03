@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:TileGen.App.ViewModels"
+             xmlns:views="using:TileGen.App.Views"
+             x:Class="TileGen.App.Views.MaterialColumnView"
+             x:DataType="vm:MaterialColumnViewModel">
+  <UserControl.Styles>
+    <Style Selector="Button.thumb">
+      <Setter Property="Padding" Value="2" />
+      <Setter Property="BorderThickness" Value="2" />
+      <Setter Property="BorderBrush" Value="#444444" />
+    </Style>
+    <Style Selector="Button.thumb.selected">
+      <Setter Property="BorderBrush" Value="White" />
+    </Style>
+  </UserControl.Styles>
+  <Border BorderBrush="#444444" BorderThickness="1" CornerRadius="4" Padding="6">
+    <DockPanel>
+      <TextBlock DockPanel.Dock="Top" Text="{Binding Title}" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
+      <ScrollViewer DockPanel.Dock="Top" Height="262" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left">
+        <views:TileView Tile="{Binding SelectedTile}" />
+      </ScrollViewer>
+      <ItemsControl DockPanel.Dock="Top" ItemsSource="{Binding Variants}" Margin="0,6">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <WrapPanel Orientation="Horizontal" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="vm:VariantThumbViewModel">
+            <Button Classes="thumb" Classes.selected="{Binding IsSelected}" Command="{Binding SelectCommand}" ToolTip.Tip="{Binding Label}" Margin="0,0,4,4">
+              <views:TileView Tile="{Binding Tile}" Width="52" Height="52" />
+            </Button>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+      <StackPanel DockPanel.Dock="Top" Margin="0,0,0,4">
+        <TextBlock Text="Garbage coverage (0 to 100)" FontWeight="SemiBold" />
+        <Grid ColumnDefinitions="*,130">
+          <Slider Grid.Column="0" Minimum="0" Maximum="100" Value="{Binding Coverage, Mode=TwoWay}" Margin="4,0" VerticalAlignment="Center" />
+          <NumericUpDown Grid.Column="1" Minimum="0" Maximum="100" Increment="1" FormatString="0" Value="{Binding CoverageValue, Mode=TwoWay}" Margin="4,0" />
+        </Grid>
+      </StackPanel>
+      <TabControl SelectedIndex="{Binding SelectedTab, Mode=TwoWay}">
+        <TabItem Header="Base">
+          <views:MaterialEditorView DataContext="{Binding Base}" />
+        </TabItem>
+        <TabItem Header="Garbage">
+          <views:MaterialEditorView DataContext="{Binding Garbage}" />
+        </TabItem>
+      </TabControl>
+    </DockPanel>
+  </Border>
+</UserControl>

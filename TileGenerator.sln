@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGenerator", "TileGenerator\TileGenerator.csproj", "{AB468045-6994-424D-9103-840255924D47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGen.Core", "TileGen.Core\TileGen.Core.csproj", "{280A092F-9BE3-4C27-A8B4-1C2591AF5A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGen.IO", "TileGen.IO\TileGen.IO.csproj", "{BA01B7C6-99A0-4109-86ED-A31972A727DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGen.Cli", "TileGen.Cli\TileGen.Cli.csproj", "{C0323C59-766B-4847-B2D1-AF007F996C25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGen.Tests", "TileGen.Tests\TileGen.Tests.csproj", "{B8437AE3-0405-449E-8145-8870B9F0AFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TileGen.App", "TileGen.App\TileGen.App.csproj", "{00DD5987-A192-4163-A5CC-8FA7971B0A79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB468045-6994-424D-9103-840255924D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB468045-6994-424D-9103-840255924D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB468045-6994-424D-9103-840255924D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB468045-6994-424D-9103-840255924D47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280A092F-9BE3-4C27-A8B4-1C2591AF5A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280A092F-9BE3-4C27-A8B4-1C2591AF5A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280A092F-9BE3-4C27-A8B4-1C2591AF5A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280A092F-9BE3-4C27-A8B4-1C2591AF5A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA01B7C6-99A0-4109-86ED-A31972A727DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA01B7C6-99A0-4109-86ED-A31972A727DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA01B7C6-99A0-4109-86ED-A31972A727DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA01B7C6-99A0-4109-86ED-A31972A727DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0323C59-766B-4847-B2D1-AF007F996C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0323C59-766B-4847-B2D1-AF007F996C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0323C59-766B-4847-B2D1-AF007F996C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0323C59-766B-4847-B2D1-AF007F996C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8437AE3-0405-449E-8145-8870B9F0AFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8437AE3-0405-449E-8145-8870B9F0AFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8437AE3-0405-449E-8145-8870B9F0AFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8437AE3-0405-449E-8145-8870B9F0AFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00DD5987-A192-4163-A5CC-8FA7971B0A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00DD5987-A192-4163-A5CC-8FA7971B0A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00DD5987-A192-4163-A5CC-8FA7971B0A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00DD5987-A192-4163-A5CC-8FA7971B0A79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

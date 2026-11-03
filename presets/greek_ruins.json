@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "greek_ruins",
+  "displayName": "Ancient Greek Ruins",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "pattern",
+        "rows": 4,
+        "columns": 4,
+        "rowOffset": 0.0,
+        "mortarWidth": { "value": 0.012, "min": 0.008, "max": 0.02 },
+        "mortarHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#5e5a52" },
+        { "t": 0.5, "color": "#b8b2a4" },
+        { "t": 1.0, "color": "#e6e1d3" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": { "value": 0.25, "min": 0.15, "max": 0.4 } },
+      "tint": { "value": 0.15, "min": 0.05, "max": 0.3 },
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.25,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#2e3a1e" },
+        { "t": 0.6, "color": "#4f6a2c" },
+        { "t": 1.0, "color": "#7f9a44" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.2,
+    "garbageScale": { "value": 0.3, "min": 0.15, "max": 0.5 },
+    "garbageSoftness": 0.1
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "pattern",
+        "rows": 6,
+        "columns": 3,
+        "rowOffset": 0.5,
+        "mortarWidth": { "value": 0.015, "min": 0.01, "max": 0.025 },
+        "mortarHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#55504a" },
+        { "t": 0.5, "color": "#a9a295" },
+        { "t": 1.0, "color": "#d9d3c4" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": { "value": 0.2, "min": 0.1, "max": 0.35 } },
+      "tint": { "value": 0.2, "min": 0.1, "max": 0.3 },
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.25,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#2e3a1e" },
+        { "t": 0.6, "color": "#4f6a2c" },
+        { "t": 1.0, "color": "#7f9a44" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.1,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.1
+  }
+}

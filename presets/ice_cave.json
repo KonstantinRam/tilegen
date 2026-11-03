@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "id": "ice_cave",
+  "displayName": "Ice Cave",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "field",
+        "scale": { "value": 0.25, "min": 0.125, "max": 0.5 },
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": { "value": 0.45, "min": 0.2, "max": 0.7 },
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#a9cfe8" },
+        { "t": 0.5, "color": "#cbe3f0" },
+        { "t": 1.0, "color": "#e3f0f7" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": { "value": 0.12, "min": 0.05, "max": 0.25 } },
+      "tint": 0.0,
+      "contrast": 0.9,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "cells",
+        "count": 6,
+        "jitter": 0.8,
+        "edgeWidth": 0.008,
+        "edgeHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#7cb0d6" },
+        { "t": 0.25, "color": "#9cc4e4" },
+        { "t": 1.0, "color": "#c4def0" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": 0.1 },
+      "tint": 0.15,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.25,
+    "garbageScale": { "value": 0.25, "min": 0.125, "max": 0.5 },
+    "garbageSoftness": 0.08
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "cells",
+        "count": 6,
+        "jitter": 0.75,
+        "edgeWidth": 0.008,
+        "edgeHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#5f9bcd" },
+        { "t": 0.3, "color": "#8ebfe3" },
+        { "t": 1.0, "color": "#c9e4f4" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": { "value": 0.08, "min": 0.03, "max": 0.15 } },
+      "tint": { "value": 0.4, "min": 0.25, "max": 0.55 },
+      "contrast": 1.5,
+      "edgeDarkening": 0.1
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.2,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#c6dcec" },
+        { "t": 0.6, "color": "#e9f2f8" },
+        { "t": 1.0, "color": "#fbfdfe" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.2 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.1,
+    "garbageScale": 0.25,
+    "garbageSoftness": 0.1
+  }
+}

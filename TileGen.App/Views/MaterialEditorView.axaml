@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:TileGen.App.ViewModels"
+             xmlns:views="using:TileGen.App.Views"
+             x:Class="TileGen.App.Views.MaterialEditorView"
+             x:DataType="vm:MaterialEditorViewModel">
+  <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <StackPanel Spacing="6" Margin="2,6,6,6">
+      <Grid ColumnDefinitions="118,*">
+        <TextBlock Grid.Column="0" Text="Structure family" VerticalAlignment="Center" />
+        <ComboBox Grid.Column="1" ItemsSource="{Binding Families}" SelectedItem="{Binding SelectedFamily, Mode=TwoWay}" HorizontalAlignment="Stretch" Margin="4,0" />
+      </Grid>
+      <TextBlock Text="Ramp" />
+      <views:RampEditorView DataContext="{Binding Ramp}" />
+      <ItemsControl ItemsSource="{Binding Rows}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate x:DataType="vm:ParameterRowViewModel">
+            <views:ParameterRowView />
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>

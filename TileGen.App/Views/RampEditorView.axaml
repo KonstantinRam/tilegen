@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:TileGen.App.ViewModels"
+             xmlns:views="using:TileGen.App.Views"
+             x:Class="TileGen.App.Views.RampEditorView"
+             x:DataType="vm:RampEditorViewModel">
+  <StackPanel Spacing="4">
+    <views:RampBar />
+    <StackPanel Orientation="Horizontal" Spacing="6">
+      <ColorPicker Color="{Binding SelectedColor, Mode=TwoWay, Converter={StaticResource RgbToColor}}" VerticalAlignment="Center" />
+      <TextBox Text="{Binding SelectedHex, Mode=TwoWay}" Width="84" VerticalAlignment="Center" ToolTip.Tip="Hex color of the selected stop" />
+      <TextBlock Text="t" VerticalAlignment="Center" />
+      <NumericUpDown Value="{Binding SelectedT, Mode=TwoWay}" Minimum="0" Maximum="1" Increment="0.05" FormatString="0.00" Width="120" VerticalAlignment="Center" />
+      <Button Content="+" Command="{Binding AddStopCommand}" ToolTip.Tip="Add a stop after the selected one" />
+      <Button Content="-" Command="{Binding RemoveStopCommand}" ToolTip.Tip="Remove the selected stop" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

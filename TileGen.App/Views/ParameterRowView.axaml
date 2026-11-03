@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:TileGen.App.ViewModels"
+             x:Class="TileGen.App.Views.ParameterRowView"
+             x:DataType="vm:ParameterRowViewModel">
+  <Grid ColumnDefinitions="118,*,84,54" Margin="0,1">
+    <TextBlock Grid.Column="0" Text="{Binding Label}" VerticalAlignment="Center" ToolTip.Tip="{Binding RangeText}" />
+    <Slider Grid.Column="1" IsVisible="{Binding IsContinuous}" Minimum="{Binding Minimum}" Maximum="{Binding Maximum}"
+            Value="{Binding Value, Mode=TwoWay}" Margin="4,0" VerticalAlignment="Center" />
+    <NumericUpDown Grid.Column="1" IsVisible="{Binding IsInteger}" Minimum="{Binding Minimum}" Maximum="{Binding Maximum}"
+                   Increment="1" FormatString="0" Value="{Binding NumericValue, Mode=TwoWay}" Margin="4,0" HorizontalAlignment="Left" Width="140" />
+    <TextBox Grid.Column="2" IsVisible="{Binding IsContinuous}" Text="{Binding ValueText, Mode=TwoWay}" Margin="4,0" />
+    <ToggleButton Grid.Column="3" IsChecked="{Binding IsLocked, Mode=TwoWay}" Content="lock" Margin="4,0" HorizontalAlignment="Stretch"
+                  ToolTip.Tip="Locked: fixed value, never jittered or randomized. Unlocked: variants may move it within its range." />
+  </Grid>
+</UserControl>

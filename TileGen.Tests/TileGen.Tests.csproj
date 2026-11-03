@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>TileGen.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.6.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4" />
+    <PackageReference Include="Avalonia.Headless.XUnit" Version="11.3.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../TileGen.Core/TileGen.Core.csproj" />
+    <ProjectReference Include="../TileGen.IO/TileGen.IO.csproj" />
+    <ProjectReference Include="../TileGen.App/TileGen.App.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The shipped presets are copied next to the test binary, so the tests read the same files the tool ships. -->
+    <None Include="../presets/*.json" LinkBase="presets" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

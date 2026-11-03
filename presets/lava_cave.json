@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "lava_cave",
+  "displayName": "Lava Cave",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "cells",
+        "count": 8,
+        "jitter": 0.8,
+        "edgeWidth": 0.01,
+        "edgeHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#0c0a09" },
+        { "t": 1.0, "color": "#3b3734" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": 0.2 },
+      "tint": 0.25,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": { "value": 0.125, "min": 0.0625, "max": 0.25 },
+        "octaves": 5,
+        "gain": 0.5,
+        "warp": { "value": 0.35, "min": 0.1, "max": 0.6 },
+        "ridged": true
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#120605" },
+        { "t": 0.55, "color": "#3a0f0a" },
+        { "t": 0.8, "color": "#9a2a10" },
+        { "t": 1.0, "color": "#ff7a1e" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": { "value": 0.15, "min": 0.05, "max": 0.3 } },
+      "tint": 0.0,
+      "contrast": 1.2,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.3,
+    "garbageScale": { "value": 0.25, "min": 0.125, "max": 0.5 },
+    "garbageSoftness": 0.08
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "field",
+        "scale": { "value": 0.125, "min": 0.0625, "max": 0.25 },
+        "octaves": 5,
+        "gain": 0.5,
+        "warp": { "value": 0.2, "min": 0.0, "max": 0.4 },
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#0e0c0b" },
+        { "t": 0.6, "color": "#2a2522" },
+        { "t": 1.0, "color": "#4a403b" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": { "value": 0.2, "min": 0.1, "max": 0.35 } },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.0625,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": true
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#1a0806" },
+        { "t": 0.85, "color": "#5a1a0c" },
+        { "t": 1.0, "color": "#ff6a1e" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 2, "strength": 0.1 },
+      "tint": 0.0,
+      "contrast": 1.3,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.1,
+    "garbageScale": 0.25,
+    "garbageSoftness": 0.08
+  }
+}
