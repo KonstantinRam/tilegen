@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "dungeon",
+  "displayName": "Dungeon",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "blocks",
+        "rows": 4,
+        "columns": 4,
+        "sizeVariation": 0.5,
+        "tallChance": 0.3,
+        "mortarWidth": { "value": 0.012, "min": 0.008, "max": 0.02 },
+        "mortarHeight": 0.0,
+        "cornerRadius": { "value": 0.008, "min": 0.004, "max": 0.016 }
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#1a1816" },
+        { "t": 0.35, "color": "#4a4541" },
+        { "t": 0.7, "color": "#6e6861" },
+        { "t": 1.0, "color": "#8f887e" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": { "value": 0.25, "min": 0.15, "max": 0.4 } },
+      "tint": 0.2,
+      "contrast": 1.0,
+      "edgeDarkening": 0.3
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.25,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#2c3418" },
+        { "t": 0.6, "color": "#4f6128" },
+        { "t": 1.0, "color": "#7f9440" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.15,
+    "garbageScale": { "value": 0.3, "min": 0.15, "max": 0.5 },
+    "garbageSoftness": 0.1
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "blocks",
+        "rows": 5,
+        "columns": 4,
+        "sizeVariation": 0.7,
+        "tallChance": 0.2,
+        "mortarWidth": { "value": 0.015, "min": 0.01, "max": 0.025 },
+        "mortarHeight": 0.0,
+        "cornerRadius": { "value": 0.02, "min": 0.01, "max": 0.03 }
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#221a10" },
+        { "t": 0.3, "color": "#5a4630" },
+        { "t": 0.65, "color": "#7b5c3c" },
+        { "t": 1.0, "color": "#a37c4e" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": { "value": 0.3, "min": 0.2, "max": 0.45 } },
+      "tint": 0.3,
+      "contrast": 1.0,
+      "edgeDarkening": 0.5
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.25,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#3b3818" },
+        { "t": 0.6, "color": "#7d7426" },
+        { "t": 1.0, "color": "#c4b63c" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.1,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.1
+  }
+}

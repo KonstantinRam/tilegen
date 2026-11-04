@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "id": "mushroom_grotto",
+  "displayName": "Mushroom Grotto",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "field",
+        "scale": { "value": 0.125, "min": 0.0625, "max": 0.25 },
+        "octaves": 5,
+        "gain": 0.5,
+        "warp": { "value": 0.3, "min": 0.15, "max": 0.5 },
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#16120c" },
+        { "t": 0.5, "color": "#2e2618" },
+        { "t": 1.0, "color": "#463a24" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": { "value": 0.3, "min": 0.2, "max": 0.4 } },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "scatter",
+        "count": 10,
+        "density": 0.6,
+        "size": 0.5,
+        "sizeVariation": 0.7,
+        "jitter": 1.0,
+        "layers": 2,
+        "groundHeight": 0.0,
+        "warp": 0.1,
+        "stars": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#2e2618" },
+        { "t": 0.02, "color": "#d84020" },
+        { "t": 0.245, "color": "#d84020" },
+        { "t": 0.265, "color": "#f0a020" },
+        { "t": 0.49, "color": "#f0a020" },
+        { "t": 0.51, "color": "#a060d0" },
+        { "t": 0.735, "color": "#a060d0" },
+        { "t": 0.755, "color": "#e8e0c8" },
+        { "t": 1.0, "color": "#e8e0c8" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.45,
+      "transparency": 1.0,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.3,
+    "garbageScale": { "value": 0.3, "min": 0.2, "max": 0.45 },
+    "garbageSoftness": 0.15
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "cells",
+        "count": 6,
+        "jitter": 0.8,
+        "edgeWidth": 0.014,
+        "edgeHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#10100c" },
+        { "t": 0.4, "color": "#2c2a20" },
+        { "t": 1.0, "color": "#46402c" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": { "value": 0.3, "min": 0.2, "max": 0.4 } },
+      "tint": { "value": 0.2, "min": 0.1, "max": 0.3 },
+      "contrast": 1.0,
+      "edgeDarkening": 0.35
+    },
+    "garbage": {
+      "structure": {
+        "family": "scatter",
+        "count": 16,
+        "density": 0.4,
+        "size": 0.35,
+        "sizeVariation": 0.6,
+        "jitter": 1.0,
+        "layers": 2,
+        "groundHeight": 0.0,
+        "warp": 0.0,
+        "stars": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#203020" },
+        { "t": 0.02, "color": "#60e0a0" },
+        { "t": 0.49, "color": "#60e0a0" },
+        { "t": 0.51, "color": "#c0ffd0" },
+        { "t": 1.0, "color": "#c0ffd0" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.8,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.15,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.3
+  }
+}

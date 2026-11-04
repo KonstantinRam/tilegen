@@ -21,6 +21,7 @@ public sealed partial class ParameterRowViewModel : ObservableObject
         Path = descriptor.Path;
         Label = descriptor.Label;
         IsInteger = descriptor.IsInteger;
+        CanRange = descriptor.CanRange;
         Minimum = descriptor.AbsoluteMin;
         Maximum = descriptor.AbsoluteMax;
         Refresh(descriptor.Param);
@@ -29,6 +30,9 @@ public sealed partial class ParameterRowViewModel : ObservableObject
     public string Path { get; }
     public string Label { get; }
     public bool IsInteger { get; }
+
+    /// <summary>False for a parameter the schema keeps fixed across variants, which the row shows without a lock button.</summary>
+    public bool CanRange { get; }
     public bool IsContinuous => !IsInteger;
     public double Minimum { get; }
     public double Maximum { get; }
@@ -81,7 +85,7 @@ public sealed partial class ParameterRowViewModel : ObservableObject
     public Param ToParam()
     {
         double v = Math.Clamp(Value, Minimum, Maximum);
-        if (IsLocked)
+        if (IsLocked || !CanRange)
         {
             return new Param(v);
         }

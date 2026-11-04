@@ -141,7 +141,7 @@ public static class PresetJson
         {
             throw new PresetFormatException(path + ".detail", "detail must be an object");
         }
-        return new Material
+        var material = new Material
         {
             Structure = ReadStructure(GetObject(obj, path, "structure"), path + ".structure"),
             Ramp = ReadRamp(obj, path),
@@ -149,7 +149,18 @@ public static class PresetJson
             Tint = GetParam(obj, path, "tint", 0.0),
             Contrast = GetParam(obj, path, "contrast", 1.0),
             EdgeDarkening = GetParam(obj, path, "edgeDarkening", 0.0),
+            Transparency = GetParam(obj, path, "transparency", 0.0),
+            CellColors = GetBool(obj, path, "cellColors", false),
         };
+        // The descriptor paths start with the prefix, so passing the JSON path as the prefix names the offending field.
+        foreach (var descriptor in TileTypeParameters.EnumerateMaterial(path, material))
+        {
+            if (!descriptor.CanRange && descriptor.Param.HasRange)
+            {
+                throw new PresetFormatException(descriptor.Path, "this parameter takes no range, because every variant of a set shares the layout it shapes along the tile edges");
+            }
+        }
+        return material;
     }
 
     private static JsonObject WriteMaterial(Material material)
@@ -172,6 +183,8 @@ public static class PresetJson
             ["tint"] = WriteParam(material.Tint),
             ["contrast"] = WriteParam(material.Contrast),
             ["edgeDarkening"] = WriteParam(material.EdgeDarkening),
+            ["transparency"] = WriteParam(material.Transparency),
+            ["cellColors"] = material.CellColors,
         };
     }
 
@@ -206,8 +219,66 @@ public static class PresetJson
                     MortarWidth = GetParam(obj, path, "mortarWidth", 0.01),
                     MortarHeight = GetParam(obj, path, "mortarHeight", 0.0),
                 };
+            case BlocksStructure.FamilyName:
+                return new BlocksStructure
+                {
+                    Rows = GetParam(obj, path, "rows", 4),
+                    Columns = GetParam(obj, path, "columns", 4),
+                    SizeVariation = GetParam(obj, path, "sizeVariation", 0.5),
+                    TallChance = GetParam(obj, path, "tallChance", 0.0),
+                    MortarWidth = GetParam(obj, path, "mortarWidth", 0.01),
+                    MortarHeight = GetParam(obj, path, "mortarHeight", 0.0),
+                    CornerRadius = GetParam(obj, path, "cornerRadius", 0.0),
+                };
+            case TimberStructure.FamilyName:
+                return new TimberStructure
+                {
+                    Rows = GetParam(obj, path, "rows", 2),
+                    Columns = GetParam(obj, path, "columns", 2),
+                    BeamWidth = GetParam(obj, path, "beamWidth", 0.08),
+                    BraceChance = GetParam(obj, path, "braceChance", 0.5),
+                    Grain = GetParam(obj, path, "grain", 0.5),
+                    PegSize = GetParam(obj, path, "pegSize", 0.012),
+                    Planks = GetBool(obj, path, "planks", false),
+                    PlankWidth = GetParam(obj, path, "plankWidth", 0.1),
+                };
+            case ScatterStructure.FamilyName:
+                return new ScatterStructure
+                {
+                    Count = GetParam(obj, path, "count", 6),
+                    Density = GetParam(obj, path, "density", 0.8),
+                    Size = GetParam(obj, path, "size", 0.5),
+                    SizeVariation = GetParam(obj, path, "sizeVariation", 0.5),
+                    Jitter = GetParam(obj, path, "jitter", 1.0),
+                    Layers = GetParam(obj, path, "layers", 1),
+                    GroundHeight = GetParam(obj, path, "groundHeight", 0.0),
+                    Warp = GetParam(obj, path, "warp", 0.3),
+                    Stars = GetParam(obj, path, "stars", 0.0),
+                };
+            case ColumnsStructure.FamilyName:
+                return new ColumnsStructure
+                {
+                    Count = GetParam(obj, path, "count", 2),
+                    Width = GetParam(obj, path, "width", 0.12),
+                    Capital = GetParam(obj, path, "capital", 0.12),
+                    Base = GetParam(obj, path, "base", 0.08),
+                    Flare = GetParam(obj, path, "flare", 0.5),
+                    Flutes = GetParam(obj, path, "flutes", 0),
+                    Behind = ReadStructure(GetObject(obj, path, TileTypeParameters.BehindField), path + "." + TileTypeParameters.BehindField),
+                };
+            case CrystalStructure.FamilyName:
+                return new CrystalStructure
+                {
+                    Count = GetParam(obj, path, "count", 8),
+                    Density = GetParam(obj, path, "density", 0.7),
+                    Shards = GetParam(obj, path, "shards", 4),
+                    Size = GetParam(obj, path, "size", 0.6),
+                    Aspect = GetParam(obj, path, "aspect", 0.28),
+                    SizeVariation = GetParam(obj, path, "sizeVariation", 0.5),
+                    Facet = GetParam(obj, path, "facet", 0.6),
+                };
             default:
-                throw new PresetFormatException(path + ".family", $"unknown family '{family}', expected field, cells or pattern");
+                throw new PresetFormatException(path + ".family", $"unknown family '{family}', expected field, cells, pattern, blocks, timber, scatter, columns or crystal");
         }
     }
 
@@ -235,6 +306,54 @@ public static class PresetJson
                 obj["rowOffset"] = WriteParam(p.RowOffset);
                 obj["mortarWidth"] = WriteParam(p.MortarWidth);
                 obj["mortarHeight"] = WriteParam(p.MortarHeight);
+                break;
+            case BlocksStructure b:
+                obj["rows"] = WriteParam(b.Rows);
+                obj["columns"] = WriteParam(b.Columns);
+                obj["sizeVariation"] = WriteParam(b.SizeVariation);
+                obj["tallChance"] = WriteParam(b.TallChance);
+                obj["mortarWidth"] = WriteParam(b.MortarWidth);
+                obj["mortarHeight"] = WriteParam(b.MortarHeight);
+                obj["cornerRadius"] = WriteParam(b.CornerRadius);
+                break;
+            case TimberStructure t:
+                obj["rows"] = WriteParam(t.Rows);
+                obj["columns"] = WriteParam(t.Columns);
+                obj["beamWidth"] = WriteParam(t.BeamWidth);
+                obj["braceChance"] = WriteParam(t.BraceChance);
+                obj["grain"] = WriteParam(t.Grain);
+                obj["pegSize"] = WriteParam(t.PegSize);
+                obj["planks"] = t.Planks;
+                obj["plankWidth"] = WriteParam(t.PlankWidth);
+                break;
+            case ScatterStructure sc:
+                obj["count"] = WriteParam(sc.Count);
+                obj["density"] = WriteParam(sc.Density);
+                obj["size"] = WriteParam(sc.Size);
+                obj["sizeVariation"] = WriteParam(sc.SizeVariation);
+                obj["jitter"] = WriteParam(sc.Jitter);
+                obj["layers"] = WriteParam(sc.Layers);
+                obj["groundHeight"] = WriteParam(sc.GroundHeight);
+                obj["warp"] = WriteParam(sc.Warp);
+                obj["stars"] = WriteParam(sc.Stars);
+                break;
+            case ColumnsStructure co:
+                obj["count"] = WriteParam(co.Count);
+                obj["width"] = WriteParam(co.Width);
+                obj["capital"] = WriteParam(co.Capital);
+                obj["base"] = WriteParam(co.Base);
+                obj["flare"] = WriteParam(co.Flare);
+                obj["flutes"] = WriteParam(co.Flutes);
+                obj[TileTypeParameters.BehindField] = WriteStructure(co.Behind);
+                break;
+            case CrystalStructure cr:
+                obj["count"] = WriteParam(cr.Count);
+                obj["density"] = WriteParam(cr.Density);
+                obj["shards"] = WriteParam(cr.Shards);
+                obj["size"] = WriteParam(cr.Size);
+                obj["aspect"] = WriteParam(cr.Aspect);
+                obj["sizeVariation"] = WriteParam(cr.SizeVariation);
+                obj["facet"] = WriteParam(cr.Facet);
                 break;
             default:
                 throw new NotSupportedException($"Unknown structure family '{structure.Family}'.");

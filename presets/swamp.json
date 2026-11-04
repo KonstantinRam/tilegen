@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "id": "swamp",
+  "displayName": "Swamp",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "scatter",
+        "count": 6,
+        "density": { "value": 0.8, "min": 0.6, "max": 0.95 },
+        "size": { "value": 0.55, "min": 0.4, "max": 0.7 },
+        "sizeVariation": 0.6,
+        "jitter": 1.0,
+        "layers": 2,
+        "groundHeight": 0.0,
+        "warp": 0.4
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#1b1d16" },
+        { "t": 0.07, "color": "#2c3a22" },
+        { "t": 0.14, "color": "#302a1e" },
+        { "t": 0.3, "color": "#4a3b27" },
+        { "t": 0.6, "color": "#6b5236" },
+        { "t": 0.85, "color": "#8c6a44" },
+        { "t": 1.0, "color": "#a98356" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.25,
+      "contrast": 1.0,
+      "edgeDarkening": 0.4
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#243a1e" },
+        { "t": 0.6, "color": "#3f6a2a" },
+        { "t": 1.0, "color": "#6a9a3c" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.2,
+    "garbageScale": { "value": 0.3, "min": 0.15, "max": 0.5 },
+    "garbageSoftness": 0.1
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "scatter",
+        "count": 4,
+        "density": 0.95,
+        "size": { "value": 0.6, "min": 0.5, "max": 0.75 },
+        "sizeVariation": 0.4,
+        "jitter": 0.9,
+        "layers": 2,
+        "groundHeight": 0.0,
+        "warp": 0.35
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#141712" },
+        { "t": 0.1, "color": "#22301e" },
+        { "t": 0.2, "color": "#2a2d26" },
+        { "t": 0.5, "color": "#474c42" },
+        { "t": 0.8, "color": "#656a5c" },
+        { "t": 1.0, "color": "#7f8474" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.25,
+      "contrast": 1.0,
+      "edgeDarkening": 0.45
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#243a1e" },
+        { "t": 0.6, "color": "#3f6a2a" },
+        { "t": 1.0, "color": "#6a9a3c" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.2,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.1
+  }
+}

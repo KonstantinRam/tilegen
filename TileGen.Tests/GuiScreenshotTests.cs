@@ -57,6 +57,15 @@ public class GuiScreenshotTests
         Dispatcher.UIThread.RunJobs();
         Capture(window, "gui_garbage_tab.png");
 
+        // The third image shows the blocks family, whose layout rows have no lock button, on the wall's base tab.
+        vm.Floor.SelectedTab = 0;
+        vm.Room.Zoom = "Fit";
+        vm.SelectedPreset = vm.Presets.FirstOrDefault(p => p.Id == "dungeon");
+        vm.LoadPresetCommand.Execute(null);
+        await vm.WaitForIdleAsync();
+        Dispatcher.UIThread.RunJobs();
+        Capture(window, "gui_blocks.png");
+
         window.Close();
     }
 

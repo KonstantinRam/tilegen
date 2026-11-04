@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "crystal_cave",
+  "displayName": "Crystal Cave",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "field",
+        "scale": { "value": 0.125, "min": 0.0625, "max": 0.25 },
+        "octaves": 5,
+        "gain": 0.5,
+        "warp": { "value": 0.3, "min": 0.1, "max": 0.5 },
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#0a0d1a" },
+        { "t": 0.5, "color": "#1a2238" },
+        { "t": 1.0, "color": "#2e3a5c" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": { "value": 0.25, "min": 0.15, "max": 0.35 } },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "crystal",
+        "count": 5,
+        "density": { "value": 0.8, "min": 0.6, "max": 0.95 },
+        "shards": 4,
+        "size": { "value": 0.85, "min": 0.7, "max": 0.85 },
+        "aspect": 0.7,
+        "sizeVariation": 0.4,
+        "facet": 0.9
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#1a2238" },
+        { "t": 0.02, "color": "#40e0ff" },
+        { "t": 0.24, "color": "#40e0ff" },
+        { "t": 0.26, "color": "#b060ff" },
+        { "t": 0.49, "color": "#b060ff" },
+        { "t": 0.51, "color": "#ff60c0" },
+        { "t": 0.74, "color": "#ff60c0" },
+        { "t": 0.76, "color": "#60ffb0" },
+        { "t": 0.92, "color": "#60ffb0" },
+        { "t": 0.94, "color": "#f0f8ff" },
+        { "t": 1.0, "color": "#f0f8ff" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.35,
+      "transparency": 1.0,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.3,
+    "garbageScale": { "value": 0.3, "min": 0.2, "max": 0.45 },
+    "garbageSoftness": 0.1
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "crystal",
+        "count": 5,
+        "density": 1.0,
+        "shards": 6,
+        "size": { "value": 0.85, "min": 0.7, "max": 0.85 },
+        "aspect": 0.45,
+        "sizeVariation": 0.55,
+        "facet": 0.9
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#0c1020" },
+        { "t": 0.02, "color": "#30d0ff" },
+        { "t": 0.24, "color": "#30d0ff" },
+        { "t": 0.26, "color": "#9050ff" },
+        { "t": 0.49, "color": "#9050ff" },
+        { "t": 0.51, "color": "#ff50b0" },
+        { "t": 0.74, "color": "#ff50b0" },
+        { "t": 0.76, "color": "#50ffb0" },
+        { "t": 0.92, "color": "#50ffb0" },
+        { "t": 0.94, "color": "#e8f4ff" },
+        { "t": 1.0, "color": "#e8f4ff" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.1 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.4,
+      "cellColors": true
+    },
+    "garbage": {
+      "structure": {
+        "family": "scatter",
+        "count": 24,
+        "density": 0.4,
+        "size": 0.3,
+        "sizeVariation": 0.8,
+        "jitter": 1.0,
+        "layers": 3,
+        "groundHeight": 0.0,
+        "warp": 0.0,
+        "stars": 0.2
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#c050d0" },
+        { "t": 0.15, "color": "#ff8ae0" },
+        { "t": 0.3, "color": "#ffe080" },
+        { "t": 0.45, "color": "#80f0d8" },
+        { "t": 0.6, "color": "#70c8ff" },
+        { "t": 0.75, "color": "#d080ff" },
+        { "t": 0.88, "color": "#ffffff" },
+        { "t": 1.0, "color": "#ffffff" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.8,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.1,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.3
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "id": "tavern",
+  "displayName": "Tavern",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "timber",
+        "rows": 1,
+        "columns": 1,
+        "beamWidth": 0.0,
+        "braceChance": 0.0,
+        "grain": 0.6,
+        "pegSize": 0.0,
+        "planks": true,
+        "plankWidth": 0.11
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#2b1a0c" },
+        { "t": 0.3, "color": "#5a3a1a" },
+        { "t": 0.6, "color": "#8c5a2c" },
+        { "t": 0.8, "color": "#b07a42" },
+        { "t": 1.0, "color": "#d09a5c" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": 0.12 },
+      "tint": 0.2,
+      "contrast": 1.0,
+      "edgeDarkening": 0.2
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#4a3418" },
+        { "t": 0.6, "color": "#8a6a2a" },
+        { "t": 1.0, "color": "#c8a84a" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.35 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.3
+    },
+    "garbageCoverage": 0.2,
+    "garbageScale": { "value": 0.3, "min": 0.2, "max": 0.45 },
+    "garbageSoftness": 0.25
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "timber",
+        "rows": 2,
+        "columns": 3,
+        "beamWidth": 0.07,
+        "braceChance": 0.4,
+        "grain": 0.6,
+        "pegSize": 0.01,
+        "planks": false,
+        "plankWidth": 0.1
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#2a1a0e" },
+        { "t": 0.12, "color": "#46301a" },
+        { "t": 0.25, "color": "#654828" },
+        { "t": 0.4, "color": "#8a6438" },
+        { "t": 0.6, "color": "#b8a888" },
+        { "t": 0.8, "color": "#d8ccb0" },
+        { "t": 1.0, "color": "#ece4cc" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": 0.2 },
+      "tint": 0.1,
+      "contrast": 1.0,
+      "edgeDarkening": 0.3
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#1e1a16" },
+        { "t": 0.6, "color": "#3a342c" },
+        { "t": 1.0, "color": "#5a5246" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.25 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.5
+    },
+    "garbageCoverage": 0.15,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.3
+  }
+}

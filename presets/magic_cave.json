@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "magic_cave",
+  "displayName": "Magic Cave",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "field",
+        "scale": { "value": 0.125, "min": 0.0625, "max": 0.25 },
+        "octaves": 5,
+        "gain": 0.5,
+        "warp": { "value": 0.4, "min": 0.2, "max": 0.6 },
+        "ridged": true
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#120a26" },
+        { "t": 0.45, "color": "#261651" },
+        { "t": 0.75, "color": "#47288c" },
+        { "t": 0.9, "color": "#28c4e8" },
+        { "t": 1.0, "color": "#d8fbff" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": { "value": 0.15, "min": 0.08, "max": 0.25 } },
+      "tint": 0.0,
+      "contrast": 1.25,
+      "edgeDarkening": 0.0
+    },
+    "garbage": {
+      "structure": {
+        "family": "scatter",
+        "count": 24,
+        "density": 0.4,
+        "size": 0.3,
+        "sizeVariation": 0.8,
+        "jitter": 1.0,
+        "layers": 3,
+        "groundHeight": 0.0,
+        "warp": 0.0,
+        "stars": 0.2
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#ff40c0" },
+        { "t": 0.15, "color": "#ff70e0" },
+        { "t": 0.3, "color": "#ffd060" },
+        { "t": 0.45, "color": "#40ffd0" },
+        { "t": 0.6, "color": "#60a0ff" },
+        { "t": 0.75, "color": "#d080ff" },
+        { "t": 0.88, "color": "#ffffff" },
+        { "t": 1.0, "color": "#ffffff" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.75,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.3,
+    "garbageScale": { "value": 0.3, "min": 0.2, "max": 0.45 },
+    "garbageSoftness": 0.3
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "cells",
+        "count": 7,
+        "jitter": 0.8,
+        "edgeWidth": 0.008,
+        "edgeHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#1a0c38" },
+        { "t": 0.2, "color": "#8a2be2" },
+        { "t": 0.4, "color": "#e040a0" },
+        { "t": 0.6, "color": "#20c0d0" },
+        { "t": 0.8, "color": "#4060e0" },
+        { "t": 1.0, "color": "#c060ff" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": { "value": 0.1, "min": 0.05, "max": 0.18 } },
+      "tint": 0.0,
+      "contrast": 1.6,
+      "edgeDarkening": 0.35,
+      "cellColors": true
+    },
+    "garbage": {
+      "structure": {
+        "family": "scatter",
+        "count": 24,
+        "density": 0.4,
+        "size": 0.3,
+        "sizeVariation": 0.8,
+        "jitter": 1.0,
+        "layers": 3,
+        "groundHeight": 0.0,
+        "warp": 0.0,
+        "stars": 0.2
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#ff40c0" },
+        { "t": 0.15, "color": "#ff70e0" },
+        { "t": 0.3, "color": "#ffd060" },
+        { "t": 0.45, "color": "#40ffd0" },
+        { "t": 0.6, "color": "#60a0ff" },
+        { "t": 0.75, "color": "#d080ff" },
+        { "t": 0.88, "color": "#ffffff" },
+        { "t": 1.0, "color": "#ffffff" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.75,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.15,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.3
+  }
+}

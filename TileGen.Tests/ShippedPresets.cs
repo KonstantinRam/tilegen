@@ -9,7 +9,8 @@ namespace TileGen.Tests;
 /// </summary>
 public static class ShippedPresets
 {
-    public static readonly string[] Ids = { "lava_cave", "greek_ruins", "ice_cave", "cursed_lands" };
+    public static readonly string[] Ids = { "lava_cave", "greek_ruins", "ice_cave", "cursed_lands", "dungeon", "medieval", "swamp", "temple", "enchanted", "magic_cave", "crystal_cave",
+        "tavern", "forgotten_castle", "wizard_tower", "elven_hall", "dwarven_forge", "catacombs", "throne_room", "dragon_lair", "haunted_library", "frozen_fortress", "sunken_temple", "mushroom_grotto" };
 
     public const int TestSize = 256;
     public const ulong TestSeed = 1234;

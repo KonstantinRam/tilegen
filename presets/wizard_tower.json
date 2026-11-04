@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "id": "wizard_tower",
+  "displayName": "Wizard Tower",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "pattern",
+        "rows": 4,
+        "columns": 4,
+        "rowOffset": 0.0,
+        "mortarWidth": { "value": 0.01, "min": 0.006, "max": 0.014 },
+        "mortarHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#c9a040" },
+        { "t": 0.15, "color": "#2a1a5a" },
+        { "t": 0.5, "color": "#3a2878" },
+        { "t": 1.0, "color": "#4c3a96" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 3, "strength": { "value": 0.15, "min": 0.08, "max": 0.25 } },
+      "tint": { "value": 0.12, "min": 0.06, "max": 0.2 },
+      "contrast": 1.0,
+      "edgeDarkening": 0.15
+    },
+    "garbage": {
+      "structure": {
+        "family": "scatter",
+        "count": 24,
+        "density": 0.4,
+        "size": 0.3,
+        "sizeVariation": 0.8,
+        "jitter": 1.0,
+        "layers": 3,
+        "groundHeight": 0.0,
+        "warp": 0.0,
+        "stars": 0.3
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#6040c0" },
+        { "t": 0.02, "color": "#40e0ff" },
+        { "t": 0.327, "color": "#40e0ff" },
+        { "t": 0.347, "color": "#ffd860" },
+        { "t": 0.653, "color": "#ffd860" },
+        { "t": 0.673, "color": "#ffffff" },
+        { "t": 1.0, "color": "#ffffff" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 2, "strength": 0.0 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0,
+      "transparency": 0.85,
+      "cellColors": true
+    },
+    "garbageCoverage": 0.2,
+    "garbageScale": { "value": 0.3, "min": 0.2, "max": 0.45 },
+    "garbageSoftness": 0.3
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "pattern",
+        "rows": 8,
+        "columns": 4,
+        "rowOffset": 0.5,
+        "mortarWidth": { "value": 0.008, "min": 0.005, "max": 0.012 },
+        "mortarHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#0e0c1c" },
+        { "t": 0.5, "color": "#2c2652" },
+        { "t": 1.0, "color": "#463e78" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": { "value": 0.2, "min": 0.12, "max": 0.3 } },
+      "tint": { "value": 0.2, "min": 0.1, "max": 0.3 },
+      "contrast": 1.0,
+      "edgeDarkening": 0.2
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.0625,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": true
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#10102a" },
+        { "t": 0.8, "color": "#203080" },
+        { "t": 1.0, "color": "#60d0ff" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 2, "strength": 0.1 },
+      "tint": 0.0,
+      "contrast": 1.3,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.15,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.1
+  }
+}

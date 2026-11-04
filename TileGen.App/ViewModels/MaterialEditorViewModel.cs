@@ -10,7 +10,7 @@ namespace TileGen.App.ViewModels;
 /// </summary>
 public sealed partial class MaterialEditorViewModel : ObservableObject
 {
-    public static readonly IReadOnlyList<string> FamilyNames = new[] { FieldStructure.FamilyName, CellsStructure.FamilyName, PatternStructure.FamilyName };
+    public static readonly IReadOnlyList<string> FamilyNames = new[] { FieldStructure.FamilyName, CellsStructure.FamilyName, PatternStructure.FamilyName, BlocksStructure.FamilyName, TimberStructure.FamilyName, ScatterStructure.FamilyName, ColumnsStructure.FamilyName, CrystalStructure.FamilyName };
 
     private readonly string _prefix;
     private readonly Action<Func<TileType, TileType>> _edit;
@@ -74,6 +74,11 @@ public sealed partial class MaterialEditorViewModel : ObservableObject
             FieldStructure.FamilyName => new FieldStructure(),
             CellsStructure.FamilyName => new CellsStructure(),
             PatternStructure.FamilyName => new PatternStructure(),
+            BlocksStructure.FamilyName => new BlocksStructure(),
+            TimberStructure.FamilyName => new TimberStructure(),
+            ScatterStructure.FamilyName => new ScatterStructure(),
+            ColumnsStructure.FamilyName => new ColumnsStructure(),
+            CrystalStructure.FamilyName => new CrystalStructure(),
             _ => throw new NotSupportedException($"Unknown family '{value}'."),
         };
         _edit(t => Set(t, Get(t) with { Structure = structure }));

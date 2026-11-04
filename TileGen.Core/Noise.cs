@@ -32,6 +32,34 @@ internal static class Noise
     }
 
     /// <summary>
+    /// Value noise with its own cell count per axis, which stretches the noise along the axis with fewer cells. Both
+    /// counts are integers per tile, so the result still wraps. The isotropic overload keeps its own body, so that
+    /// every export made before this overload existed renders the same bytes.
+    /// </summary>
+    public static double Value(double u, double v, int cellsX, int cellsY, ulong seed)
+    {
+        double fx = u * cellsX;
+        double fy = v * cellsY;
+        double flx = Math.Floor(fx);
+        double fly = Math.Floor(fy);
+        int x0 = Wrap((int)flx, cellsX);
+        int y0 = Wrap((int)fly, cellsY);
+        int x1 = x0 + 1 == cellsX ? 0 : x0 + 1;
+        int y1 = y0 + 1 == cellsY ? 0 : y0 + 1;
+        double sx = Fade(fx - flx);
+        double sy = Fade(fy - fly);
+
+        double a = Hashing.Unit(Hashing.Lattice(seed, x0, y0));
+        double b = Hashing.Unit(Hashing.Lattice(seed, x1, y0));
+        double c = Hashing.Unit(Hashing.Lattice(seed, x0, y1));
+        double d = Hashing.Unit(Hashing.Lattice(seed, x1, y1));
+
+        double top = a + (b - a) * sx;
+        double bottom = c + (d - c) * sx;
+        return top + (bottom - top) * sy;
+    }
+
+    /// <summary>
     /// Fractal Brownian motion over value noise. The caller passes the number of octaves to keep, because dropping
     /// octaves finer than one pixel depends on the tile size and is decided once per tile.
     /// </summary>

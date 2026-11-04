@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "temple",
+  "displayName": "Fantasy Temple",
+  "variants": 4,
+  "jitter": 0.1,
+  "floor": {
+    "base": {
+      "structure": {
+        "family": "pattern",
+        "rows": 4,
+        "columns": 4,
+        "rowOffset": 0.0,
+        "mortarWidth": { "value": 0.006, "min": 0.004, "max": 0.01 },
+        "mortarHeight": 0.0
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#6e6a62" },
+        { "t": 0.5, "color": "#cfcabe" },
+        { "t": 1.0, "color": "#ece8de" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": { "value": 0.15, "min": 0.1, "max": 0.25 } },
+      "tint": { "value": 0.08, "min": 0.04, "max": 0.14 },
+      "contrast": 1.0,
+      "edgeDarkening": 0.1
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#4e4a42" },
+        { "t": 0.6, "color": "#76705f" },
+        { "t": 1.0, "color": "#9b9480" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.15,
+    "garbageScale": { "value": 0.3, "min": 0.15, "max": 0.5 },
+    "garbageSoftness": 0.1
+  },
+  "wall": {
+    "base": {
+      "structure": {
+        "family": "columns",
+        "count": 2,
+        "width": 0.14,
+        "capital": 0.14,
+        "base": 0.09,
+        "flare": 0.5,
+        "flutes": 6,
+        "behind": {
+          "family": "blocks",
+          "rows": 4,
+          "columns": 3,
+          "sizeVariation": 0.3,
+          "tallChance": 0.1,
+          "mortarWidth": { "value": 0.01, "min": 0.006, "max": 0.016 },
+          "mortarHeight": 0.0,
+          "cornerRadius": 0.004
+        }
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#121214" },
+        { "t": 0.1, "color": "#26282b" },
+        { "t": 0.4, "color": "#3c3e43" },
+        { "t": 0.45, "color": "#44464b" },
+        { "t": 0.55, "color": "#5a5752" },
+        { "t": 0.75, "color": "#9f9b92" },
+        { "t": 1.0, "color": "#ece7dc" }
+      ],
+      "detail": { "scale": 0.0625, "octaves": 4, "strength": 0.15 },
+      "tint": 0.12,
+      "contrast": 1.0,
+      "edgeDarkening": 0.3
+    },
+    "garbage": {
+      "structure": {
+        "family": "field",
+        "scale": 0.125,
+        "octaves": 4,
+        "gain": 0.5,
+        "warp": 0.3,
+        "ridged": false
+      },
+      "ramp": [
+        { "t": 0.0, "color": "#243a1e" },
+        { "t": 0.6, "color": "#3f6a2a" },
+        { "t": 1.0, "color": "#6a9a3c" }
+      ],
+      "detail": { "scale": 0.03125, "octaves": 3, "strength": 0.3 },
+      "tint": 0.0,
+      "contrast": 1.0,
+      "edgeDarkening": 0.0
+    },
+    "garbageCoverage": 0.1,
+    "garbageScale": 0.3,
+    "garbageSoftness": 0.1
+  }
+}

@@ -69,6 +69,21 @@ public class GuiBehaviorTests
     }
 
     [AvaloniaFact]
+    public async Task BlocksLayoutRows_HaveNoLock_AndStayFixed()
+    {
+        var vm = NewViewModel("dungeon");
+        await vm.WaitForIdleAsync();
+        var rows = vm.Wall.Base.Rows.First(r => r.Path == "base.structure.rows");
+        var mortar = vm.Wall.Base.Rows.First(r => r.Path == "base.structure.mortarWidth");
+        Assert.False(rows.CanRange);
+        Assert.True(mortar.CanRange);
+        rows.IsLocked = false;
+        Assert.False(rows.ToParam().HasRange, "A layout parameter of the blocks family never gains a range.");
+        var blocks = Assert.IsType<BlocksStructure>(vm.CurrentPreset.Wall.Base.Structure);
+        Assert.False(blocks.Rows.HasRange);
+    }
+
+    [AvaloniaFact]
     public async Task RampEdit_KeepsTheEndsAtZeroAndOne()
     {
         var vm = NewViewModel("greek_ruins");

@@ -36,31 +36,63 @@ internal static class GarbageMask
         ulong SharedSeed);
 
     /// <summary>
-    /// Returns one blend weight per pixel in row-major order. A pixel whose weight is at least 0.5 counts as covered,
-    /// and exactly round(coverage * pixels) pixels satisfy that unless two pixels tie exactly.
+    /// The mask of one tile. Weights holds one blend weight per pixel in row-major order, where a pixel whose weight is
+    /// at least 0.5 counts as covered and exactly round(coverage * pixels) pixels satisfy that unless two pixels tie
+    /// exactly. Covers answers for a whole feature by the pixel under its center (ADR-019).
     /// </summary>
-    public static double[] Compute(int size, Settings s, CancellationToken cancellation = default)
+    public sealed class Result
+    {
+        private readonly int _size;
+        private readonly bool[] _sharedCovered;
+
+        internal Result(int size, double[] weights, bool[] sharedCovered)
+        {
+            _size = size;
+            Weights = weights;
+            _sharedCovered = sharedCovered;
+        }
+
+        public double[] Weights { get; }
+
+        /// <summary>
+        /// Whether a feature centered at the given tile coordinates is drawn. A feature that every variant shares follows
+        /// the shared field alone, because its pixels reach the seam where the variants must agree, and a variant's own
+        /// feature follows the variant's mask under its center, so either kind is whole or absent instead of cut.
+        /// </summary>
+        public bool Covers(double u, double v, bool shared)
+        {
+            int x = Math.Clamp((int)Math.Floor(u * _size), 0, _size - 1);
+            int y = Math.Clamp((int)Math.Floor(v * _size), 0, _size - 1);
+            int i = y * _size + x;
+            return shared ? _sharedCovered[i] : Weights[i] >= 0.5;
+        }
+    }
+
+    public static Result Compute(int size, Settings s, CancellationToken cancellation = default)
     {
         int count = size * size;
         var weights = new double[count];
+        var sharedCovered = new bool[count];
         if (s.Coverage <= 0.0)
         {
-            return weights;
+            return new Result(size, weights, sharedCovered);
         }
         if (s.Coverage >= 1.0)
         {
             Array.Fill(weights, 1.0);
-            return weights;
+            Array.Fill(sharedCovered, true);
+            return new Result(size, weights, sharedCovered);
         }
         int covered = (int)Math.Round(s.Coverage * count);
         if (covered <= 0)
         {
-            return weights;
+            return new Result(size, weights, sharedCovered);
         }
         if (covered >= count)
         {
             Array.Fill(weights, 1.0);
-            return weights;
+            Array.Fill(sharedCovered, true);
+            return new Result(size, weights, sharedCovered);
         }
 
         var options = new ParallelOptions { CancellationToken = cancellation };
@@ -94,6 +126,7 @@ internal static class GarbageMask
                 double reach = crossover * (MinReachFactor + ReachSpread * cut[i]);
                 double e = 1.0 - Noise.SmoothStep(Math.Min(distance[x], distance[y]) / reach);
                 edge[i] = e;
+                sharedCovered[i] = shared[i] >= sharedThreshold;
                 double ownWeight = Math.Max(1.0 - e, MinOwnWeight);
                 limits[i] = own[i] + e * (shared[i] - sharedThreshold) / ownWeight;
             }
@@ -116,7 +149,7 @@ internal static class GarbageMask
                 weights[i] = softness > 0.0 ? Noise.SmoothStep(d / softness + 0.5) : (d >= 0.0 ? 1.0 : 0.0);
             }
         });
-        return weights;
+        return new Result(size, weights, sharedCovered);
     }
 
     /// <summary>The measured coverage, defined as the fraction of pixels whose blend weight is at least 0.5.</summary>
